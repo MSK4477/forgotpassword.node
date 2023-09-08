@@ -99,7 +99,7 @@ userRouter.post("/forgotPassword", async (req, res) => {
     from: "ks7997067@gmail.com",
     to: email,
     subject: "Sample Email Subject",
-    text: `http://localhost:5173/resetPassword/${user._id}?token=${token}`,
+    text: `https://forgotpassword-node.onrender.com/api/users/resetPassword/${user._id}?token=${token}`,
   };
 
   try {
