@@ -12,7 +12,7 @@ const PORT = 3000
 
 
 app.get("/", (req, res) =>{
-    res.status(200).json({message:"murugaa"})
+    res.status(200).json({message:"welcome"})
 })
 
 app.listen(PORT, () =>{
