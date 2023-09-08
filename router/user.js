@@ -88,7 +88,6 @@ userRouter.post("/forgotPassword", async (req, res) => {
   const user = await User.findOne({ email: email });
   if (!user) {
     res.json({ code: 0, message: "email not found" });
-    console.error("not found bro:");
     return;
   }
 
