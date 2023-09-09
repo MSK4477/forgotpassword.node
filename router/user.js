@@ -102,9 +102,8 @@ userRouter.post("/forgotPassword", async (req, res) => {
     from: "ks7997067@gmail.com",
     to: email,
     subject: "Sample Email Subject",
-    text: `https://forgotpassword-node.onrender.com/api/users/resetPassword/${user._id}?token=${token}`,
+    text: `  https://gorgeous-kulfi-5c037b.netlify.app/resetPassword/resetPassword/${user._id}?token=${token}`,
   };
-
   try {
     await transporter.sendMail(mailOptions);
     console.log("Email sent successfully.");
