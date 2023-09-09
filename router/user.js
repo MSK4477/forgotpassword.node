@@ -91,6 +91,7 @@ userRouter.post("/forgotPassword", async (req, res) => {
     return;
   }
 
+
   const token = jwt.sign({ id: user._id }, "jwt_secret_key", {
     expiresIn: "1d",
   });
