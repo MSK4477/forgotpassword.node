@@ -91,7 +91,7 @@ userRouter.post("/forgotPassword", async (req, res) => {
     return;
   }
 
-  const token = jwt.sign({ id: user._id }, process.env.SECRETE_KEY, {
+  const token = jwt.sign({ id: user._id }, "jwt_secret_key", {
     expiresIn: "1d",
   });
   
@@ -115,7 +115,7 @@ userRouter.post("/resetPassword/:id", async (req, res) => {
   const { password } = req.body;
 
   try {
-    jwt.verify(token, process.env.SECRETE_KEY);
+    jwt.verify(token, "jwt_secret_key");
 
     const hash = await bcrypt.hash(password, 10);
 
