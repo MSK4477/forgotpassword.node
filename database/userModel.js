@@ -16,6 +16,9 @@ const userSchema = new Schema({
     type: "string",
     required: true,
   },
+  randomToken :{
+    type: "string",
+  },
 });
 
 const User = model("Users", userSchema);
