@@ -96,6 +96,7 @@ userRouter.post("/forgotPassword", async (req, res) => {
     expiresIn: "1d",
   });
   user.randomToken = token;
+  await user.save();
   const mailOptions = {
     from: "ks7997067@gmail.com",
     to: email,
@@ -121,7 +122,7 @@ userRouter.post("/resetPassword/:id", async (req, res) => {
     const hash = await bcrypt.hash(password, 10);
 
     await User.findByIdAndUpdate({ _id: id }, { password: hash });
-    await User.findByIdAndUpdate({ _id: id }, { randomToken:null });
+    await User.findByIdAndUpdate({_id:id}, {randomToken:null})
 
     res.json({ Status: "Success" });
   } catch (err) {
