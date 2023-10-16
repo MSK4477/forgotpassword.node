@@ -79,7 +79,7 @@ userRouter.post("/login", async (req, res) => {
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: process.env.GMAIL_USERNAME,
+    user: process.env.GMAIL_USER,
     pass: process.env.GMAIL_PASSWORD,
   },
 });
@@ -98,9 +98,9 @@ userRouter.post("/forgotPassword", async (req, res) => {
   user.randomToken = token;
   await user.save();
   const mailOptions = {
-    from: process.env.GMAIL_USERNAME,
+    from: process.env.GMAIL_USER,
     to: email,
-    subject: "Sample Email Subject",
+    subject: "Reset Password",
     text: `  https://gorgeous-kulfi-5c037b.netlify.app/resetPassword/${user._id}?token=${token}`,
   };
   try {
